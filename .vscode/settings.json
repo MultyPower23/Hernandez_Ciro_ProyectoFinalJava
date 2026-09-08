@@ -1,144 +1,26 @@
 {
-  "files.autoSave": "afterDelay",
-  "workbench.startupEditor": "none",
-  "workbench.iconTheme": "material-icon-theme",
-
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-
-  "python.analysis.typeCheckingMode": "standard",
-
-  // ==================== CONFIGURACIONES GENERALES ====================
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.detectIndentation": true,
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "editor.inlineSuggest.enabled": true,
-  "files.trimTrailingWhitespace": true,
-
-  // ==================== PYTHON ====================
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
-  },
-
-  // ==================== WEB (HTML, CSS, JavaScript, JSON) ====================
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  // ==================== SQL / SQLite ====================
-  "[sql]": {
-    "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc",
-    "editor.formatOnSave": true
-  },
-  "sql-formatter.dialect": "sqlite",
-  "sql-formatter.keywordCase": "upper",
-  "sql-formatter.dataTypeCase": "upper",
-  "sql-formatter.indent": "    ",
-
-  "sqlite.recordsPerPage": 100,
-  "sqlite.logLevel": "INFO",
-
-  "files.associations": {
-    "*.sql": "sql"
-  },
-
-  // ==================== JAVA ====================
+  // ==================== JAVA (lo único que hay en este proyecto) ====================
   "[java]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "redhat.java"
+    "editor.defaultFormatter": "redhat.java",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   },
-   "java.format.settings.url": "${workspaceFolder}/.vscode/GoogleStyle.xml",
-   "java.format.settings.profile": "GoogleStyle",
-   "java.project.resourceFilters": [
-     "node_modules",
-     ".git",
-     "\\.docx$",
-     "\\.doc$",
-     "\\.pdf$",
-     "\\.pptx$",
-     "\\.zip$"
-   ],
+  "java.format.settings.url": "${workspaceFolder}/.vscode/GoogleStyle.xml",
+  "java.format.settings.profile": "GoogleStyle",
 
-  // ==================== MARKDOWN ====================
-  "[markdown]": {
-    "editor.formatOnSave": true // true activo el formateo
-  },
-  "workbench.editorAssociations": {
-    "**/Clase_*.md": "vscode.markdown.preview.editor",
-    "COMMIT_CONVENTION.md": "vscode.markdown.preview.editor",
-    "INDICE_GENERAL.md": "vscode.markdown.preview.editor",
-    "01_Estructura_y_Perfil_Profesional.md": "vscode.markdown.preview.editor",
-    "02_Experiencia_Educacion_Habilidades.md": "vscode.markdown.preview.editor",
-    "03_Errores_Y_Presentacion_Personal.md": "vscode.markdown.preview.editor",
-    "04_Portales_Y_Herramientas.md": "vscode.markdown.preview.editor",
-  },
+  // Evita que VS Code indexe/monitoree los PDF del enunciado y evidencias
+  // (previene errores de build si algún sync tipo OneDrive los bloquea)
+  "java.project.resourceFilters": [
+    "node_modules",
+    ".git",
+    "\\.pdf$",
+    "\\.docx$",
+    "\\.zip$"
+  ],
 
-  // ==================== LINTERS ====================
-  "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit",
-      "source.fixAll.markdownlint": "explicit"
-  },
-
-  "redhat.telemetry.enabled": true,
-  "github.copilot.editor.enableAutoCompletions": true,
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": true,
-    "scminput": false,
-    "java": true
-  },
-
-  // ==================== ICONOS ====================
-  "material-icon-theme.folders.associations": {
-    "Mod_01_Bases": "core",
-    "Mod_02_Desarrollo_Humano": "messages",
-    "Mod_03_POO": "class",
-    "PSeInt": "tools",
-    "Ejercicios": "test",
-    "Trabajo_Final": "project",
-  },
-
-  "material-icon-theme.files.associations": {
-    "COMMIT_CONVENTION.md": "commitlint",
-    "INDICE_GENERAL.md": "toc",
-    "Clase_1.md": "changelog",
-    "Clase_2.md": "changelog",
-    "Clase_3.md": "changelog",
-    "Clase_4.md": "changelog",
-    "Clase_5.md": "changelog",
-    "Clase_6.md": "changelog",
-    "Clase_7.md": "changelog",
-    "Clase_8.md": "changelog",
-    "Clase_9.md": "changelog",
-    "Clase_10.md": "changelog",
-    "Clase_11.md": "changelog",
-    "Clase_12.md": "changelog",
-    "Clase_13.md": "changelog",
-    "Clase_14.md": "changelog",
-    "Clase_15.md": "changelog",
-    "Clase_16.md": "changelog",
-    "Clase_17.md": "changelog",
-    "Clase_18.md": "changelog",
-    "Clase_19.md": "changelog",
-    "Clase_20.md": "changelog",
-    "Clase_21.md": "changelog",
-    "Clase_22.md": "changelog",
-    "Clase_23.md": "changelog",
-    "Clase_24.md": "changelog",
-    "Clase_25.md": "changelog",
-    "Clase_26.md": "changelog",
-  },
+  // ==================== HIGIENE DE ARCHIVOS (para que los diffs entre los dos queden limpios) ====================
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true
 }
