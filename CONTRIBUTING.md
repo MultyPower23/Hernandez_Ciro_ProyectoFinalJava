@@ -1,138 +1,47 @@
-# Guía de Contribución (CONTRIBUTING.md)
+# 🤝 Guía de Colaboración
 
-¡Gracias por tu interés en contribuir a este proyecto! Para mantener una colaboración ordenada, eficiente y transparente, te pedimos que sigas las pautas descritas en este documento.
-
----
-
-## 📋 Índice
-
-1. [Código de Conducta](#-código-de-conducta)
-2. [¿Cómo puedo contribuir?](#-cómo-puedo-contribuir)
-   - [Reportar Errores (Bugs)](#reportar-errores-bugs)
-   - [Sugerir Nuevas Funcionalidades](#sugerir-nuevas-funcionalidades)
-   - [Enviar Cambios de Código](#enviar-cambios-de-código)
-3. [Flujo de Trabajo Git (Git Workflow)](#-flujo-de-trabajo-git-git-workflow)
-   - [1. Clonar y Crear Rama](#1-clonar-y-crear-rama)
-   - [2. Convención de Nombres de Ramas](#2-convención-de-nombres-de-ramas)
-   - [3. Formato de Commits](#3-formato-de-commits)
-   - [4. Crear un Pull Request](#4-crear-un-pull-request)
-4. [Estándares y Estilo de Código](#-estándares-y-estilo-de-código)
-5. [Revisión de Código (Code Review)](#-revisión-de-código-code-review)
+Documento práctico y simplificado para la colaboración de esta semana.
 
 ---
 
-## 🤝 Código de Conducta
-
-Este proyecto fomenta un ambiente inclusivo, respetuoso y libre de acoso. Esperamos que todos los colaboradores interactúen de manera profesional y constructiva:
-
-- Sé respetuoso con las opiniones y críticas constructivas.
-- Mantén un tono cordial en comentarios, *issues* y *pull requests*.
-- Céntrate en lo que sea mejor para la comunidad y el proyecto.
+## 📌 Propósito del Documento
+Este archivo contiene las instrucciones necesarias para coordinar el trabajo en equipo de manera ágil durante esta semana, evitando burocracia innecesaria y asegurando un flujo de trabajo fluido entre ambos colaboradores.
 
 ---
 
-## 💡 ¿Cómo puedo contribuir?
+## 🛠️ Flujo de Trabajo en Git
 
-### Reportar Errores (Bugs)
-
-Antes de crear una nueva incidencia (*issue*), por favor busca en las existentes para asegurarte de que el problema no ha sido reportado previamente.
-
-Al reportar un error, incluye:
-
-1. **Título claro y descriptivo.**
-2. **Pasos para reproducir:** Instrucciones detalladas paso a paso.
-3. **Comportamiento esperado vs. comportamiento actual.**
-4. **Entorno de ejecución:** Sistema operativo, versión de lenguaje/framework, navegador, etc.
-5. **Capturas de pantalla o registros (logs):** Si aplica.
-
-### Sugerir Nuevas Funcionalidades
-
-Las sugerencias y mejoras son bienvenidas. Al proponer una idea:
-
-- Explica **qué problema resuelve** o qué beneficio aporta al proyecto.
-- Describe detalladamente **cómo imaginas que debería funcionar**.
-
-### Enviar Cambios de Código
-
-Para enviar cambios de código, crea una rama siguiendo las convenciones descritas
-en el flujo de trabajo Git y abre un Pull Request cuando los cambios estén listos.
-
----
-
-## 🔄 Flujo de Trabajo Git (Git Workflow)
-
-### 1. Clonar y Crear Rama
-
-Para trabajar en una tarea, asegúrate de partir de la versión más reciente de la rama principal (`main`):
+### 1. Actualizar la rama principal y crear una nueva rama
+Antes de comenzar cualquier tarea, asegúrate de tener la última versión de la rama principal (`main`) y crea una rama específica para los cambios que vas a realizar. Nunca trabajes directamente sobre `main`.
 
 ```bash
 git checkout main
 git pull origin main
-git checkout -b <nombre-de-tu-rama>
+git checkout -b nombre-de-la-tarea
 ```
 
-### 2. Convención de Nombres de Ramas
-
-Usa prefijos descriptivos para estructurar el nombre de tus ramas:
-
-| Prefijo | Propósito | Ejemplo |
-| :--- | :--- | :--- |
-| `feature/` | Nueva funcionalidad o módulo | `feature/login-autenticacion` |
-| `fix/` | Corrección de errores o *bugs* | `fix/error-navegacion-menu` |
-| `docs/` | Cambios en la documentación | `docs/actualizar-readme` |
-| `refactor/` | Reestructuración de código sin cambiar lógica | `refactor/optimizar-consultas` |
-| `test/` | Adición o corrección de pruebas unitarias | `test/pruebas-servicio-usuario` |
-
-### 3. Formato de Commits
-
-Mantenemos un historial de commits limpio y descriptivo siguiendo el estándar de [Conventional Commits](https://www.conventionalcommits.org/):
-
-- `feat: ...` (Para agregar nuevas funcionalidades)
-- `fix: ...` (Para corregir errores)
-- `docs: ...` (Para actualizar documentación)
-- `style: ...` (Formateo, punto y coma faltantes, etc.; sin cambios de lógica)
-- `refactor: ...` (Cambios de código que ni corrigen errores ni añaden funcionalidades)
-- `test: ...` (Añadir o corregir tests)
-
-**Ejemplo:**
+### 2. Registrar los cambios (Commits)
+Realiza commits con mensajes breves y descriptivos que expliquen claramente la modificación o nueva funcionalidad agregada.
 
 ```bash
-git commit -m "feat: agrega validación de correo en formulario de registro"
+git commit -m "Agrega formulario de inicio de sesión"
 ```
 
-### 4. Crear un Pull Request
-
-Cuando tu código esté listo y probado localmente:
+### 3. Subir la rama y crear Pull Request (PR)
+Una vez finalizada la tarea y verificada localmente:
 
 1. Sube tu rama al repositorio remoto:
-
    ```bash
-   git push origin <nombre-de-tu-rama>
+   git push origin nombre-de-la-tarea
    ```
-
-2. Ve al repositorio en GitHub y abre un **Pull Request (PR)** hacia la rama `main`.
-3. Completa la plantilla del PR explicando:
-   - ¿Qué cambios introduce este PR?
-   - Contexto o motivación de los cambios.
-   - Instrucciones o checklist para probar los cambios.
-4. Asigna al menos a **un compañero del equipo** para que revise tu PR.
+2. Ve al repositorio en GitHub y abre un **Pull Request (PR)** con dirección a la rama `main`.
+3. Notifica directamente a tu compañero para realizar una revisión rápida.
+4. Tras recibir el visto bueno, realiza la fusión (**Merge**) y elimina la rama remota para mantener el repositorio limpio.
 
 ---
 
-## 🎨 Estándares y Estilo de Código
+## ⚡ Reglas de Trabajo y Buenas Prácticas
 
-- **Consistencia:** Mantén las convenciones de código utilizadas en el proyecto (sigue los linter/formatters configurados).
-- **Documentación:** Comenta funciones o módulos complejos cuando la intención del código no sea evidente por sí misma.
-- **Pruebas:** Asegúrate de ejecutar la suite de pruebas existente antes de enviar tu PR y añade nuevas pruebas para la lógica introducida.
-
----
-
-## 🔍 Revisión de Código (Code Review)
-
-- **Sin fusiones directas:** No realices *commits* ni fusiones directas a la rama `main`. Todos los cambios deben pasar por revisión.
-- **Aprobaciones necesarias:** Todo Pull Request requiere al menos una revisión y aprobación antes de ser integrado (*merged*).
-- **Resolución de sugerencias:** Responde y resuelve los comentarios de los revisores antes de realizar el *merge final*.
-
----
-
-¡Gracias de nuevo por contribuir y hacer crecer este proyecto! 🚀
+* **Comunicación directa e inmediata:** No es necesario crear *issues* ni documentación compleja de seguimiento. Las tareas se asignan y coordinan directamente por chat para no duplicar esfuerzos.
+* **Verificación de código funcional:** Revisa y prueba que el proyecto compile y ejecute correctamente en tu entorno local antes de solicitar la revisión del Pull Request.
+* **Revisiones rápidas:** Dado que el proyecto tiene una duración de una sola semana, las revisiones de código deben realizarse lo antes posible para no bloquear el avance del compañero.
