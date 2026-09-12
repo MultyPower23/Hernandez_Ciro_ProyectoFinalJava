@@ -4,6 +4,7 @@
     "vscjava.vscode-java-pack",
     "eamodio.gitlens",
     "mhutchie.git-graph",
-    "tomoki1207.pdf"
+    "tomoki1207.pdf",
+    "vstirbu.vscode-mermaid-preview"
   ]
 }
