@@ -62,8 +62,16 @@ classDiagram
 
     class Principal {
         -ArrayList~Aeropuerto~ aeropuertos
-        +main(String[]) void
-        +cargarDatos() void
+        +main(String[])$ void
+        +mostrarMenu()$ void
+    }
+
+    class Utilidades {
+        <<utility>>
+        +imprimirEncabezado()$ void
+        +limpiarConsola()$ void
+        +cambiarPagina()$ void
+        +cargarDatos()$ ArrayList~Aeropuerto~
     }
 
     Vuelo "1" o-- "0..*" Pasajero : contiene
@@ -73,3 +81,10 @@ classDiagram
 
     Aeropuerto <|-- AeropuertoPublico : extends
     Aeropuerto <|-- AeropuertoPrivado : extends
+
+    Principal ..> Utilidades : usa
+    Utilidades ..> AeropuertoPublico : crea
+    Utilidades ..> AeropuertoPrivado : crea
+    Utilidades ..> Compania : crea
+    Utilidades ..> Vuelo : crea
+    Utilidades ..> Pasajero : crea
