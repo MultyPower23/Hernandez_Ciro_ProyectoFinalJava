@@ -18,6 +18,22 @@ public class Utilidades {
     System.out.println("========================================");
   }
 
+  // Limpia la consola. El comando real depende del sistema operativo (cls en Windows,
+  // clear en Linux/Mac), por eso se detecta con os.name antes de decidir cuál correr.
+  // Si por algún motivo falla (ej. corriendo dentro de un IDE que no lo soporta bien),
+  // no truena el programa, simplemente no se limpia.
+  public static void limpiarConsola() {
+    try {
+      if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+      } else {
+        new ProcessBuilder("clear").inheritIO().start().waitFor();
+      }
+    } catch (Exception e) {
+      // No es crítico si no se pudo limpiar, el programa sigue funcionando igual.
+    }
+  }
+
   // arma una lista con los datos minimos solicitados de aeropuertos con sus respectivas compañías,
   // vuelos y pasajeros para usarla en el programa
   public static ArrayList<Aeropuerto> cargarDatos() {
