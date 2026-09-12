@@ -42,26 +42,7 @@ public class Aeropuerto {
   }
 
   // agregar clase abstracta a aeropuerto (mejor dicho,convertirlo)
-  public static void main(String[] args) {
-    Vuelo vuelo1 = new Vuelo("AV123", "Bogotá", "Miami", 500.0, 150);
-    Vuelo vuelo2 = new Vuelo("AV456", "Bogotá", "Madrid", 800.0, 200);
-    Vuelo vuelo3 = new Vuelo("AV789", "Rionegro", "Londres", 900.0, 180);
-    Compania compania1 = new Compania("Avianca");
-    Compania compania2 = new Compania("Latam");
-    compania1.agregarVuelo(vuelo1);
-    compania1.agregarVuelo(vuelo2);
-    compania2.agregarVuelo(vuelo3);
-    Aeropuerto aeropuerto = new Aeropuerto("El Dorado", "Bogotá", "Colombia");
-    aeropuerto.agregarCompania(compania1);
-    aeropuerto.agregarCompania(compania2);
-    for (Compania compañia : aeropuerto.getCompanias()) {
-      System.out.println("Compañia: " + compañia.getNombre());
-      for (Vuelo vuelo : compañia.getVuelos()) {
-        System.out.println("Vuelo: " + vuelo.getIdentificador() + " - " + vuelo.getCiudadOrigen()
-            + " -> " + vuelo.getCiudadDestino());
-      }
 
-    }
-  }
 }
+
 
