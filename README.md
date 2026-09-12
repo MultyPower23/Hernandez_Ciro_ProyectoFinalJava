@@ -61,6 +61,6 @@ extensión de Java detecte el proyecto.
 - [x] Fase 1 — Pasajero y Vuelo
 - [x] Fase 2 — Compania y Aeropuerto
 - [x] Fase 3 — Herencia (AeropuertoPublico / AeropuertoPrivado)
-- [ ] Fase 4 — Datos de prueba (`cargarDatos()`)
+- [x] Fase 4 — Datos de prueba (`cargarDatos()`)
 - [ ] Fase 5 — Menú (`Principal`)
 - [ ] Fase 6 — Pruebas y evidencias
