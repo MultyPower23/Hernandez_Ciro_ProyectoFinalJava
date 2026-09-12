@@ -46,7 +46,8 @@ public class Vuelo {
     return pasajeros;
   }
 
-  // Lógica de negocio
+  // true si se pudo reservar, false si ya estaba lleno. Quien llama decide qué imprimir
+  // con ese resultado — esta clase no imprime nada por su cuenta.
   public boolean reservarAsiento(Pasajero pasajero) {
     if (pasajeros.size() >= numeroMaximoPasajeros) {
       return false;

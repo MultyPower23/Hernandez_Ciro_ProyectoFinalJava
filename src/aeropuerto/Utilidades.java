@@ -34,6 +34,7 @@ public class Utilidades {
     }
   }
 
+  // Atajo para no repetir estas dos líneas en cada opción del menú.
   public static void cambiarPagina() {
     limpiarConsola();
     imprimirEncabezado();
@@ -89,6 +90,8 @@ public class Utilidades {
     Aeropuerto elDorado = new AeropuertoPrivado("El Dorado Internacional", "Bogota", "Colombia");
     elDorado.agregarCompania(avianca);
     elDorado.agregarCompania(latam);
+    // Cast obligatorio: elDorado es de tipo Aeropuerto, y agregarPatrocinador() solo
+    // existe en AeropuertoPrivado, no en el padre.
     ((AeropuertoPrivado) elDorado).agregarPatrocinador("Grupo Bolivar");
     ((AeropuertoPrivado) elDorado).agregarPatrocinador("Corficolombiana");
 

@@ -7,36 +7,45 @@ public class Principal {
 
   // La lista que arma Utilidades.cargarDatos() se guarda aquí una sola vez,
   // al arrancar, para que todas las opciones del switch la puedan usar.
+  // static porque main() es static y nunca creamos un new Principal(); todo vive
+  // a nivel de la clase, no de un objeto.
   private static ArrayList<Aeropuerto> aeropuertos;
   private static Scanner sc = new Scanner(System.in);
 
   public static void main(String[] args) {
     aeropuertos = Utilidades.cargarDatos();
-    String op;
+    String op; // String, no int: así una letra no revienta el programa, solo cae al default
     while (true) {
-      Utilidades.cambiarPagina();
+      Utilidades.cambiarPagina(); // pantalla limpia + encabezado antes de mostrar el menú
       mostrarMenu();
       op = sc.nextLine().trim();
-      Utilidades.cambiarPagina();
+      Utilidades.cambiarPagina(); // se limpia otra vez para que el resultado no quede pegado al
+                                  // menú
       switch (op) {
         case "1":
+          imprimirTitulo("AEROPUERTOS GESTIONADOS");
           consultarAeropuertos();
           break;
         case "2":
+          imprimirTitulo("FINANCIACIÓN DE UN AEROPUERTO");
           verFinanciacion();
           break;
         case "3":
+          imprimirTitulo("COMPAÑÍAS DE UN AEROPUERTO");
           verCompaniasDeAeropuerto();
           break;
         case "4":
+          imprimirTitulo("VUELOS DE UNA COMPAÑÍA");
           verVuelosDeCompania();
           break;
         case "5":
+          imprimirTitulo("VUELOS ENTRE DOS CIUDADES");
           buscarVuelosEntreCiudades();
           break;
         case "0":
           System.out.println("Saliendo...");
-          sc.close();
+          sc.close(); // solo aquí, una vez: cerrarlo antes cortaría la lectura en la siguiente
+                      // vuelta
           return;
         default:
           System.out.println("=====================================");
@@ -60,10 +69,19 @@ public class Principal {
     System.out.print("Ingrese una opción: ");
   }
 
+  private static void imprimirTitulo(String titulo) {
+    System.out.println();
+    System.out.println(">>> " + titulo + " <<<");
+    System.out.println("-------------------------------------");
+  }
+
   // ---------------------------------------------------------------------
   // Opción 1: públicos y privados por separado. Nombre, ciudad y país.
   // ---------------------------------------------------------------------
   private static void consultarAeropuertos() {
+    // instanceof aquí SÍ está bien: solo separa en dos grupos para imprimir, no decide
+    // comportamiento distinto (eso es lo que hace mal usar instanceof). Comparar con
+    // verFinanciacion() de abajo, que es el caso real de polimorfismo.
     System.out.println("--- Aeropuertos públicos ---");
     for (Aeropuerto a : aeropuertos) {
       if (a instanceof AeropuertoPublico) {
@@ -170,6 +188,9 @@ public class Principal {
     System.out.print("Ciudad de destino: ");
     String destino = sc.nextLine();
 
+    // yaMostrados.contains(v) funciona sin que Vuelo tenga equals() propio, porque son
+    // literalmente el mismo objeto en memoria (Avianca comparte sus vuelos entre dos
+    // aeropuertos, ver Utilidades.cargarDatos()) — no dos copias con los mismos datos.
     ArrayList<Vuelo> yaMostrados = new ArrayList<>(); // para no repetir el mismo vuelo
     boolean encontroAlguno = false;
 
