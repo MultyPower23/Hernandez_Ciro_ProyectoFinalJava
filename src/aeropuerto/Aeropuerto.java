@@ -2,7 +2,10 @@ package aeropuerto;
 
 import java.util.ArrayList;
 
-public class Aeropuerto {
+// Clase padre. Es "abstract" porque nunca vamos a crear un Aeropuerto genérico:
+// todo aeropuerto real es público o privado. Esta clase solo guarda lo que
+// ambos tipos tienen en común, y obliga a las hijas a definir el resto.
+public abstract class Aeropuerto {
   private String nombre;
   private String ciudad;
   private String pais;
@@ -15,7 +18,7 @@ public class Aeropuerto {
     this.companias = new ArrayList<>();
   }
 
-  public String getnombre() {
+  public String getNombre() {
     return nombre;
   }
 
@@ -41,8 +44,8 @@ public class Aeropuerto {
     return nombre + " (" + ciudad + ", " + pais + ")" + " - Compañías: " + companias.size();
   }
 
-  // agregar clase abstracta a aeropuerto (mejor dicho,convertirlo)
-
+  // Sin cuerpo a propósito: el padre no sabe si va a hablar de subvención o de
+  // patrocinadores. Cada hija implementa esto con @Override, cada una a su manera.
+  // Así el menú llama este único método sin preguntar antes qué tipo de aeropuerto es.
+  public abstract String informacionDeFinanciacion();
 }
-
-
