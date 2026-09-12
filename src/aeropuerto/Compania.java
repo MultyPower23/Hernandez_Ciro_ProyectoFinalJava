@@ -23,6 +23,10 @@ public class Compania {
   public void agregarVuelo(Vuelo vuelo) {
     vuelos.add(vuelo);
   }
-}
 
+  @Override
+  public String toString() {
+    return nombre + " - Vuelos: " + vuelos.size();
+  }
+}
 
