@@ -34,6 +34,11 @@ public class Utilidades {
     }
   }
 
+  public static void cambiarPagina() {
+    limpiarConsola();
+    imprimirEncabezado();
+  }
+
   // arma una lista con los datos minimos solicitados de aeropuertos con sus respectivas compañías,
   // vuelos y pasajeros para usarla en el programa
   public static ArrayList<Aeropuerto> cargarDatos() {
