@@ -12,17 +12,12 @@ public class Principal {
 
   public static void main(String[] args) {
     aeropuertos = Utilidades.cargarDatos();
-
+    String op;
     while (true) {
       Utilidades.cambiarPagina();
       mostrarMenu();
-      String op = sc.nextLine().trim();
-
-      // switch sobre String: cualquier cosa que no sea "1".."5" o "0" cae
-      // directo al default, sin necesidad de validar que sea numérico antes.
-      // Esto también evita el problema del salto de línea pendiente que tenía
-      // nextByte(): al leer todo con nextLine(), nunca queda nada a medias
-      // en el buffer para las opciones que piden texto justo después.
+      op = sc.nextLine().trim();
+      Utilidades.cambiarPagina();
       switch (op) {
         case "1":
           consultarAeropuertos();
@@ -89,7 +84,7 @@ public class Principal {
   // informacionDeFinanciacion() responde distinto según la subclase real.
   // ---------------------------------------------------------------------
   private static void verFinanciacion() {
-    System.out.print("Nombre del aeropuerto: ");
+    System.out.print("Nombre del aeropuerto (nombre completo e igual): ");
     String nombre = sc.nextLine();
 
     Aeropuerto encontrado = buscarAeropuertoPorNombre(nombre); // busca en la lista
@@ -105,21 +100,21 @@ public class Principal {
   // Opción 3: compañías que operan en un aeropuerto.
   // ---------------------------------------------------------------------
   private static void verCompaniasDeAeropuerto() {
-    System.out.print("Nombre del aeropuerto: ");
+    System.out.print("Nombre del aeropuerto (nombre completo e igual): ");
     String nombre = sc.nextLine();
 
-    Aeropuerto a = buscarAeropuertoPorNombre(nombre); // paso 1: buscar el aeropuerto
-    if (a == null) {
+    Aeropuerto encontrado = buscarAeropuertoPorNombre(nombre); // paso 1: buscar el aeropuerto
+    if (encontrado == null) {
       System.out.println("No se encontró un aeropuerto con ese nombre.");
       return;
     }
 
-    if (a.getCompanias().isEmpty()) { // aeropuerto existe pero sin companias
+    if (encontrado.getCompanias().isEmpty()) { // aeropuerto existe pero sin companias
       System.out.println("Este aeropuerto no tiene compañías registradas.");
       return;
     }
 
-    for (Compania c : a.getCompanias()) { // paso 2: recorrer sus companias
+    for (Compania c : encontrado.getCompanias()) { // paso 2: recorrer sus companias
       System.out.println(c); // usa Compania.toString()
     }
   }
@@ -128,11 +123,11 @@ public class Principal {
   // Opción 4: vuelos de una compañía puntual en un aeropuerto puntual.
   // ---------------------------------------------------------------------
   private static void verVuelosDeCompania() {
-    System.out.print("Nombre del aeropuerto: ");
+    System.out.print("Nombre del aeropuerto (nombre completo e igual): ");
     String nombreAeropuerto = sc.nextLine();
 
-    Aeropuerto a = buscarAeropuertoPorNombre(nombreAeropuerto); // paso 1: el aeropuerto
-    if (a == null) {
+    Aeropuerto encontrado = buscarAeropuertoPorNombre(nombreAeropuerto); // paso 1: el aeropuerto
+    if (encontrado == null) {
       System.out.println("No se encontró un aeropuerto con ese nombre.");
       return;
     }
@@ -141,8 +136,8 @@ public class Principal {
     String nombreCompania = sc.nextLine();
 
     Compania encontrada = null;
-    for (Compania c : a.getCompanias()) { // paso 2: buscar SOLO entre las companias de ESE
-                                          // aeropuerto
+    for (Compania c : encontrado.getCompanias()) { // paso 2: buscar SOLO entre las companias de ESE
+                                                   // aeropuerto
       if (c.getNombre().equalsIgnoreCase(nombreCompania)) {
         encontrada = c;
         break; // ya la encontró, no sigue buscando
